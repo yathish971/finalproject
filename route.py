@@ -21,7 +21,7 @@ def hello_world():
         user_password=request.form.get('user_password', '')
         user_age=request.form.get('user_age', '')
         cursor = mydb.cursor()
-        query="insert into user values('{}','{}','{}','{}')"
+        query="insert into user(u_name,u_pass,email,age) values('{}','{}','{}','{}')"
         query=query.format(user_name,user_password,user_email,user_age)
         cursor.execute(query)
        
