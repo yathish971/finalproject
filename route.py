@@ -10,4 +10,4 @@ def hello_world():
 if __name__=="__main__":
     with app.app_context():
         pass
-    app.run(debug=True)
+    app.run(debug=True,port=8080)
