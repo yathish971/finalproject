@@ -1,6 +1,5 @@
 from flask import Flask,render_template,request,redirect
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+import pymysql
 user = 'root'
 password = 'Yathish123@'
 host = '10.0.1.15'
@@ -19,20 +18,14 @@ def hello_world():
 
     return render_template("index.html",name="yathish")
 
-def get_connection():
-    return create_engine(
-        url="postgresql://{0}:{1}@{2}:{3}/{4}".format(
-            user, password, host, port, database
-        )
-    )
+
 if __name__=="__main__":
     
     try:
-        # GET THE CONNECTION OBJECT (ENGINE) FOR THE DATABASE
-        engine = get_connection()
-        print(
-            f"Connection to the {host} for user {user} created successfully.")
-    except Exception as ex:
-        print("Connection could not be made due to the following error: \n", ex)
+        mydb=pymysql.connect(host="10.0.1.15",user="root",password="Yathish123@",database='information')
+        print(mydb)# GET THE CONNECTION OBJECT (ENGINE) FOR THE DATABASE
+    except Exception as e:
+        print(e)
+   
       
         app.run(debug=True,host="0.0.0.0",port=8080)
