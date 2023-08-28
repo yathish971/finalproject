@@ -1,6 +1,9 @@
 from flask import Flask,render_template,request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
+import pymysql
+mydb=pymysql.connect(host="10.0.1.15",user="root",password="Yathish123@",database="information")
+print(mydb)
 
 
 app = Flask(__name__)
